@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1 class="ui dividing header"> Busqueda de productos</h1>
+    <p></p>
+    <form class="ui form" action="{% url 'product_search' %}" method="get">
+        <div class="field">
+            <label> Nombre de Producto</label>
+            <input name="q" type="text" placeholder="Producto...">
+        </div>
+        <button class="ui button" type="submit">Buscar</button>
+    </form>
+{% endblock content %}

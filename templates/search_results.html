@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if object_list %}
+    <h1 class="ui header"> Lista de productos</h1>
+    <p>Aqui podran ver una lista de los productos agregados</p>
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th class="left aligned">Nombre</th>
+                <th>Calorias(kcal)</th>
+                <th>Carbohidratos(g)</th>
+                <th>lipidos(g)</th>
+                <th>Proteinas(g)</th>
+                <th>Sodio (mg)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in object_list %}
+            <tr>
+                <td class="left aligned"><a href="{% url 'product_edit' product.pk %}">{{ product.title }}</a></td>
+                <td>{{ product.kcalorie}}</td>
+                <td>{{ product.carbs}}</td>
+                <td>{{ product.fat}}</td>
+                <td>{{ product.protein}}</td>
+                <td>{{ product.sodium}}</td>
+                <td> <a href="{% url 'product_delete' product.pk %}"><i class="trash icon"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Producto no encontrado</p>
+        <a href=""> Agregar producto</a>
+    {% endif %}
+{% endblock content %}

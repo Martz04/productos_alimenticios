@@ -1,0 +1,26 @@
+{% load static %}
+<html> 
+    <head>
+        <title>Contador de Calorias</title> 
+        <link href="{% static 'vendor/semantic.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/base.css' %}" rel="stylesheet">
+    </head>
+<body> 
+<div class="ui fixed inverted menu">
+<div class="ui container">
+    <a href="{% url 'home' %}" class="header item">
+    Matematicas y Ciencia de Datos
+    </a>
+    <a href="{% url 'home' %}" class="item">Buscar</a>
+    <a href="{% url 'product_new' %}" class="item">Nuevo</a>
+</div>
+</div>
+
+  <div class="ui main text container">  
+    <div class="ui segment">
+    {% block content %} 
+    {% endblock content %}
+    </div>
+  </div>
+</body>
+</html>
